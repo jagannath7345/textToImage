@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text To Image</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="rows">
+        <div class="col-sm-6 mt-2">
+          <h1>Text to Image</h1>
+          <form action="/generateImage" method="post">
+            <textarea
+              name="text"
+              id=""
+              cols="10"
+              rows="5"
+              class="form-control"
+            ></textarea
+            ><br />
+            <label for="alignment" class="form-label"
+              >Select Alignment of Text</label
+            >
+            <select name="align" id="" class="form-control">
+              <option value="left" selected>Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+            <br />
+            <label for="bcolor" class="form-label"
+              >Select Background Color</label
+            >
+            <input
+              type="color"
+              name="bcolor"
+              value="#000000"
+              class="form-control"
+            /><br />
+            <label for="tcolor" class="form-label">Select Text Color</label>
+            <input
+              type="color"
+              name="tcolor"
+              value="#ffffff"
+              id=""
+              class="form-control"
+            /><br />
+            <label for="fontsize" class="form-label">Select Font Size</label>
+            <input
+              type="number"
+              name="fontsize"
+              value="25"
+              class="form-control"
+            />
+            <br />
+            <button type="submit" class="btn btn-primary">
+              Generate Image
+            </button>
+          </form>
+        </div>
+        <div class="col-sm-4 mt-5 d-flax">
+          <%if(dataUri){%>
+          <img src="<%=dataUri%>" />
+          <%}%>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
